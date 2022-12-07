@@ -1,0 +1,111 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test1
+  labels:
+    ns: test1
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test2
+  labels:
+    ns: test2
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test3
+  labels:
+    ns: test3
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: echo
+  labels:
+    ns: echo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: toolbox-test1
+  name: toolbox-test1
+  namespace: test1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toolbox-test1
+  template:
+    metadata:
+      labels:
+        app: toolbox-test1
+    spec:
+      containers:
+      - image: harbor.kengdie.xyz/k8s/donch/net-tools:latest
+        name: toolbox
+        command:
+        - "sleep"
+        - "infinity"
+        resources:
+          limits:
+            cpu: "10m"
+            memory: "10Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: toolbox-test2
+  name: toolbox-test2
+  namespace: test2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toolbox-test2
+  template:
+    metadata:
+      labels:
+        app: toolbox-test2
+    spec:
+      containers:
+      - image: harbor.kengdie.xyz/k8s/donch/net-tools:latest
+        name: toolbox
+        command:
+        - "sleep"
+        - "infinity"
+        resources:
+          limits:
+            cpu: "10m"
+            memory: "10Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: toolbox-test3
+  name: toolbox-test3
+  namespace: test3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toolbox-test3
+  template:
+    metadata:
+      labels:
+        app: toolbox-test3
+    spec:
+      containers:
+      - image: harbor.kengdie.xyz/k8s/donch/net-tools:latest
+        name: toolbox
+        command:
+        - "sleep"
+        - "infinity"
+        resources:
+          limits:
+            cpu: "10m"
+            memory: "10Mi"

@@ -1,0 +1,10 @@
+{
+	"auths": {
+		"ccr.ccs.tencentyun.com": {
+			"auth": "MTAwMDAwMzg4NzgxOkFkbWluMTIzNDU="
+		},
+		"harbor.kengdie.xyz": {
+			"auth": "YWRtaW46V29EZUhhcmJvckFkbWluMTIzNDU="
+		}
+	}
+}
